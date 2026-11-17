@@ -1,0 +1,2 @@
+ALTER TABLE "Show"
+ADD COLUMN "localEvento" VARCHAR(200);

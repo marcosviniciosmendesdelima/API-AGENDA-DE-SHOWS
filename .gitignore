@@ -1,0 +1,16 @@
+node_modules/
+dist/
+uploads/
+.env
+.env.local
+.DS_Store
+*.log
+.agents/
+.claude/
+.cursor/
+.devin/
+ROTEIRO_MIGRACAO_PRISMA.md
+node_modules/
+dist/
+.env
+.DS_Store

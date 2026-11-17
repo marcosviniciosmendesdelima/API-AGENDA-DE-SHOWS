@@ -1,0 +1,110 @@
+# Requer a extensão REST Client do VS Code e a API em execução.
+# Os pedidos de cadastro criam dados no banco; os pedidos de exclusão estão desativados.
+@baseUrl = http://127.0.0.1:3000/api
+@email = admin@banda.com
+@senha = admin123
+
+### Verificar se a API está ativa
+GET {{baseUrl}}/health
+
+### Fazer login e receber o token JWT
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{senha}}"
+}
+
+### Listar shows
+GET {{baseUrl}}/shows
+Authorization: Bearer {{login.response.body.$.token}}
+
+### Listar contratantes
+GET {{baseUrl}}/contratantes
+Authorization: Bearer {{login.response.body.$.token}}
+
+### Listar locais
+GET {{baseUrl}}/locais
+Authorization: Bearer {{login.response.body.$.token}}
+
+### Cadastrar show de teste
+# @name criarShow
+POST {{baseUrl}}/shows
+Authorization: Bearer {{login.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "titulo": "Show de teste",
+  "cidade": "São Paulo",
+  "data": "2026-12-20T20:00:00-03:00",
+  "dataFim": "2026-12-20T23:00:00-03:00",
+  "tipoLocal": "PRIVADO",
+  "responsavelVenda": "Equipe da banda",
+  "status": "CONFIRMADO",
+  "valorShow": 8000,
+  "observacoes": "Registro de teste via testes.http",
+  "contratante": {
+    "nome": "Contratante de teste",
+    "cpf": "12345678901",
+    "email": "teste.contratante@example.com",
+    "telefone": "(11) 99999-9999"
+  }
+}
+
+### Consultar os pagamentos do show de teste
+GET {{baseUrl}}/shows/{{criarShow.response.body.$.id}}/pagamentos
+Authorization: Bearer {{login.response.body.$.token}}
+
+### Registrar pagamento de teste (comprovante opcional)
+# @name criarPagamento
+POST {{baseUrl}}/shows/{{criarShow.response.body.$.id}}/pagamentos
+Authorization: Bearer {{login.response.body.$.token}}
+Content-Type: multipart/form-data; boundary=RestClientBoundary
+
+--RestClientBoundary
+Content-Disposition: form-data; name="valor"
+
+800
+--RestClientBoundary
+Content-Disposition: form-data; name="dataPagamento"
+
+2026-10-09T14:00:00-03:00
+--RestClientBoundary--
+
+### Consultar comprovante (responderá 404, pois o pagamento de teste não anexou arquivo)
+GET {{baseUrl}}/pagamentos/{{criarPagamento.response.body.$.id}}/comprovante
+Authorization: Bearer {{login.response.body.$.token}}
+
+### Atualizar o show de teste
+PUT {{baseUrl}}/shows/{{criarShow.response.body.$.id}}
+Authorization: Bearer {{login.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "titulo": "Show de teste atualizado",
+  "cidade": "São Paulo",
+  "data": "2026-12-20T20:00:00-03:00",
+  "dataFim": "2026-12-20T23:00:00-03:00",
+  "tipoLocal": "PRIVADO",
+  "responsavelVenda": "Equipe da banda",
+  "status": "CONFIRMADO",
+  "valorShow": 8000,
+  "observacoes": "Show atualizado via testes.http",
+  "contratanteId": {{criarShow.response.body.$.contratanteId}},
+  "contratante": {
+    "nome": "Contratante de teste",
+    "cpf": "12345678901",
+    "email": "teste.contratante@example.com",
+    "telefone": "(11) 99999-9999"
+  }
+}
+
+### Remover pagamento de teste (opcional; remove também o comprovante)
+# DELETE {{baseUrl}}/pagamentos/{{criarPagamento.response.body.$.id}}
+# Authorization: Bearer {{login.response.body.$.token}}
+
+### Remover show de teste (opcional; remove os pagamentos associados)
+# DELETE {{baseUrl}}/shows/{{criarShow.response.body.$.id}}
+# Authorization: Bearer {{login.response.body.$.token}}

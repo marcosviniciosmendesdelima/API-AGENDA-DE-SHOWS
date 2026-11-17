@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 3233f9196a5b623c88e10aef6f66cb0a740b5ba6 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794253845 -0300	commit (initial): feat: commit inicial da API Agenda de Shows
+3233f9196a5b623c88e10aef6f66cb0a740b5ba6 0000000000000000000000000000000000000000 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794253845 -0300	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 3233f9196a5b623c88e10aef6f66cb0a740b5ba6 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794253845 -0300	Branch: renamed refs/heads/master to refs/heads/main
+3233f9196a5b623c88e10aef6f66cb0a740b5ba6 3233f9196a5b623c88e10aef6f66cb0a740b5ba6 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794253899 -0300	checkout: moving from main to branch-main
+3233f9196a5b623c88e10aef6f66cb0a740b5ba6 a04902b39c3054d99584afe5505930be2171c7ce Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794279530 -0300	commit: Implementa perfis de acesso e ajustes na interface
+a04902b39c3054d99584afe5505930be2171c7ce 0daa4ed6ff9cedda14f9af052aa2e59ae197a9cb Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794336986 -0300	commit: Implementa alteração de senha e ajustes da agenda
+0daa4ed6ff9cedda14f9af052aa2e59ae197a9cb 4cb7efe389326a54a2fb00deac2f1f2a837d0936 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794336988 -0300	rebase (start): checkout origin/main
+4cb7efe389326a54a2fb00deac2f1f2a837d0936 6e2d9d3ca06ec407c6390f7786ec69e85af96806 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794336988 -0300	rebase (pick): Implementa alteração de senha e ajustes da agenda
+6e2d9d3ca06ec407c6390f7786ec69e85af96806 6e2d9d3ca06ec407c6390f7786ec69e85af96806 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794336988 -0300	rebase (finish): returning to refs/heads/branch-main
+6e2d9d3ca06ec407c6390f7786ec69e85af96806 fec53a4cf8abfa2137586e18cbe108eae71ddf87 Marcos Vinícios Mendes de Lima <marcos.lima@cs.unipe.edu.br> 1794337475 -0300	commit (amend): Implementa alteração de senha e ajustes da agenda

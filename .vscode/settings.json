@@ -1,0 +1,6 @@
+{
+    "chat.tools.terminal.blockDetectedFileWrites": "outsideWorkspace",
+    "workbench.view.showQuietly": {
+        "workbench.panel.output": false
+    }
+}
